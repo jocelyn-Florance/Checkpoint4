@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="container">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContents"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContents">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/games']">Games</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowns" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Panel Administration
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdowns">
+            <a class="dropdown-item" [routerLink]="['/dashboard']">Panel</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="container">
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h1>Wild circus Game </h1>
+      <p>Recherche vos alternative a vos jeux preferer</p>
+    </div>
+
+    <div class="col-md-6 mt-4">
+      <form (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+        <input class="form-control form-control-lg" type="search" name="nane" placeholder="recherche vos jeux"
+               formControlName="name">
+        <button class="btn btn-info btn-block mt-4 mb-1" type="submit">Rechercher</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container mb-5">
+  <router-outlet></router-outlet>
+</div>

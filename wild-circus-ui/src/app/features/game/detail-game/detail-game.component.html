@@ -1,0 +1,61 @@
+<div class="mb-5" *ngIf="game && randomGame">
+
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h3>Decripption du jeux {{game.name}}</h3>
+      <p class="size-description">{{game.content}}</p>
+    </div>
+  </div>
+
+  <button class="btn btn-warning btn-block" [routerLink]="['/dashboard/edit/game/', game.game_id]">Editer {{game.name}}</button>
+  <button class="btn btn-danger btn-block" (click)="deleteGame(game.game_id)">Suprimer {{game.name}}</button>
+
+  <div class="row">
+
+    <div class="col-md-12 text-center">
+      <p class="mt-4 size-title"><strong>{{game.name}}</strong> et t'il une alternative a
+        <strong>{{randomGame.name}}</strong>
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card-body text-center">
+        <img class="size-image" [src]="game.image">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card-body text-center">
+        <img class="size-image" [src]="randomGame.image">
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-3">
+      <button (click)="click(randomGame.game_id)" class="btn btn-success btn-block">Oui</button>
+    </div>
+    <div class="col-3">
+      <button (click)="click(0)" class="btn btn-danger btn-block">Non</button>
+    </div>
+  </div>
+
+  <h3 class="mt-5 text-center">Les Alternative de {{game.name}}</h3>
+
+  <div class="row">
+
+    <ng-container *ngFor="let gameAlternative of gameAlternative">
+      <div class="col-md-4">
+        <a [routerLink]="['/games', gameAlternative.game_id]">
+          <div class="card mt-3">
+            <img [src]="gameAlternative.image" class="rounded float-left img-fluid size-image" alt="image jeux">
+          </div>
+        </a>
+      </div>
+    </ng-container>
+
+  </div>
+
+</div>
+
+

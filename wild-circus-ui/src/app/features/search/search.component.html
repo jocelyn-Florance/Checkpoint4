@@ -1,0 +1,17 @@
+<ng-container *ngFor="let game of game">
+  <div class="card mb-3 mt-4">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img [src]="game.image" class="rounded float-left img-fluid" alt="image jeux">
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <a [routerLink]="['/games', game.game_id ]">
+            <h5 class="card-title">{{game.name}}</h5>
+          </a>
+          <p>{{game.content |slice:0:155}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,18 @@
+<h1 class="mt-3 mb-5">Nouveau jeux ajouter</h1>
+
+<div class="row">
+
+  <ng-container *ngFor="let game of game">
+    <div class="col-md-4">
+      <a [routerLink]="['/games', game.game_id ]">
+        <div class="card mt-3" style="width: 18rem;">
+          <img [src]="game.image" class="rounded float-left img-fluid" alt="image jeux">
+        </div>
+      </a>
+    </div>
+  </ng-container>
+
+</div>
+
+
+

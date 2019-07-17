@@ -1,0 +1,43 @@
+<div class="row mb-5">
+
+  <div class="col-12 m-3">
+    <div class="alert alert-danger m-4 text-center"
+         *ngIf="game &&(game | filterGame: filterName).length === 0">
+      <span *ngIf="filterName">Il n'y a pas de jeux</span>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <ng-container *ngFor="let game of game | filterGame: filterName">
+
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-3">
+            <img [src]="game.image" class="rounded float-left img-fluid" alt="image jeux">
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <a [routerLink]="['/games', game.game_id ]">
+                <h5 class="card-title">{{game.name}}</h5>
+              </a>
+              <p>{{game.content |slice:0:155}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <p>filtre</p>
+        <input [(ngModel)]='filterName' type="search" class="form-control" placeholder="filtrer name">
+      </div>
+    </div>
+  </div>
+
+
+</div>
